@@ -40,7 +40,7 @@ def help(message):
 
 @respond_to('^who are you')
 def who_are_you(message):
-    message.reply("I'm a robot\n https://github.com/DiggerPlus/slackbot")
+    message.reply("I'm a robot\n https://github.com/Eycloud/eycloud-bot")
 
 
 @respond_to('^!(\w+)$')
