@@ -7,7 +7,8 @@ import logging
 
 from slackbot.bot import respond_to
 from slackbot.bot import listen_to
-from google import lucky
+
+from plugins import lucky, gif
 
 logger = logging.getLogger()
 
@@ -82,4 +83,14 @@ def google_lucky(message, keyword):
     if r:
         url, desc = r
         return message.send(u"{} - {}".format(url, desc))
+    return message.send('Nothing found!')
+
+
+@listen_to("^!gif (.*)$")
+@respond_to("^!gif (.*)$")
+def search_gif(message, keyword):
+    logger.info("Search gif for keyword: %s" % keyword)
+    r = gif(keyword)
+    if r:
+        return message.send(r)
     return message.send('Nothing found!')
