@@ -8,5 +8,5 @@ DEFAULT_REPLY = "Not sure what you mean."
 
 PLUGINS = [
     'slackbot.plugins',
-    'eycloud-bot',
+    'eybot.eycloud-bot',
 ]
