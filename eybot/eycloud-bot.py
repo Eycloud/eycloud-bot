@@ -8,7 +8,7 @@ import logging
 from slackbot.bot import respond_to
 from slackbot.bot import listen_to
 
-from plugins import lucky, gif
+from plugins import lucky, gif, handle as baiduapi
 
 logger = logging.getLogger()
 
@@ -94,3 +94,10 @@ def search_gif(message, keyword):
     if r:
         return message.send(r)
     return message.send('Nothing found!')
+
+
+@listen_to("!map (.*)$")
+def baidu_map(message, keyword):
+    logger.info("Search baidumap for keyword: %s" % keyword)
+    r = baiduapi({'message': keyword})
+    return message.send(r)
